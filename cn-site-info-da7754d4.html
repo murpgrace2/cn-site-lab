@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开云 · 网站用途快速识别指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f2d5c4 50%, #edcebb 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            color: #2e241f;
+        }
+        .page {
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        /* 导航条 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 248, 240, 0.75);
+            backdrop-filter: blur(6px);
+            padding: 0.8rem 1.8rem;
+            border-radius: 48px;
+            box-shadow: 0 4px 12px rgba(140, 80, 50, 0.10);
+            margin-bottom: 2.8rem;
+        }
+        .navbar .brand {
+            font-weight: 650;
+            font-size: 1.4rem;
+            letter-spacing: 0.02em;
+            color: #7f5539;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #5a3f2f;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 30px;
+            padding: 0.2rem 0.6rem;
+            transition: all 0.2s ease;
+        }
+        .navbar .nav-links a:hover {
+            background: #dbb99a;
+            color: #2b1d16;
+        }
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 0.6rem;
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        /* hero 区域 */
+        .hero {
+            background: #fffcf7;
+            border-radius: 40px;
+            padding: 3rem 2.8rem;
+            box-shadow: 0 10px 30px rgba(128, 70, 40, 0.08);
+            margin-bottom: 2.2rem;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 680;
+            color: #4d3225;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 span {
+            background: linear-gradient(to right, #b3734a, #a15f39);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 680px;
+            color: #4b382b;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #fffcf7;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 6px 16px rgba(110, 60, 35, 0.05);
+            transition: 0.2s ease;
+        }
+
+        /* 核心介绍 + 三场景网格 */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.2rem;
+        }
+        .intro-main {
+            background: #fffcf7;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 6px 16px rgba(110, 60, 35, 0.05);
+        }
+        .intro-main h2 {
+            font-size: 1.6rem;
+            font-weight: 650;
+            margin-bottom: 1rem;
+            color: #4d3225;
+        }
+        .intro-main p {
+            margin-bottom: 1rem;
+            color: #3f2f25;
+        }
+        .intro-main a {
+            color: #a15f39;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #e4c7b2;
+            padding-bottom: 1px;
+            transition: 0.15s;
+        }
+        .intro-main a:hover {
+            border-bottom-color: #a15f39;
+            background: #f1e0d2;
+            border-radius: 4px;
+            padding: 0 4px;
+        }
+
+        .scene-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .scene-item {
+            background: #fffcf7;
+            border-radius: 24px;
+            padding: 1.3rem 1.8rem;
+            box-shadow: 0 6px 16px rgba(110, 60, 35, 0.05);
+            border-left: 6px solid #c9a27f;
+        }
+        .scene-item h3 {
+            font-size: 1.25rem;
+            font-weight: 620;
+            margin-bottom: 0.2rem;
+            color: #4d3225;
+        }
+        .scene-item p {
+            color: #3f2f25;
+            font-size: 0.98rem;
+        }
+
+        @media (max-width: 720px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 常见说明区域 (FAQ 摘要) */
+        .faq-section {
+            background: #fffcf7;
+            border-radius: 28px;
+            padding: 2rem 2.4rem;
+            box-shadow: 0 6px 16px rgba(110, 60, 35, 0.05);
+            margin-bottom: 2.2rem;
+        }
+        .faq-section h2 {
+            font-size: 1.6rem;
+            font-weight: 650;
+            color: #4d3225;
+            margin-bottom: 1.2rem;
+        }
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #eedccf;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #5a3f2f;
+            margin-bottom: 0.2rem;
+        }
+        .faq-answer {
+            color: #3f2f25;
+            font-size: 0.98rem;
+        }
+        .faq-answer a {
+            color: #a15f39;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #dbbcac;
+        }
+        .faq-answer a:hover {
+            background: #f1e0d2;
+            border-radius: 4px;
+            padding: 0 2px;
+        }
+
+        /* 样式细节按钮感链接 */
+        .btn-like-link {
+            display: inline-block;
+            background: #efe1d4;
+            color: #4d3225;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 550;
+            text-decoration: none;
+            transition: 0.18s;
+            font-size: 0.95rem;
+        }
+        .btn-like-link:hover {
+            background: #dbb99a;
+            color: #2b1d16;
+            transform: translateY(-1px);
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            color: #5f4838;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <span class="brand">✦ 开云</span>
+        <ul class="nav-links">
+            <li><a href="#">识别</a></li>
+            <li><a href="#">场景</a></li>
+            <li><a href="#">说明</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero 核心介绍 -->
+    <div class="hero">
+        <h1>快速识别<br><span>开云</span> 的网站用途</h1>
+        <p>当你首次接触一个网站，最直接的问题往往是：“它提供什么？我该怎么用？” 从界面到功能，我们帮你拆解 <a href="https://cn-site-ky.com" style="text-decoration:none; color: #a15f39; font-weight:600;">开云</a> 的内容布局与设计意图。</p>
+    </div>
+
+    <!-- 核心介绍 + 三个场景模块（左右结构） -->
+    <div class="intro-grid">
+        <div class="intro-main">
+            <h2>从用户视角理解开云</h2>
+            <p>打开 <a href="https://cn-site-ky.com">开云</a> 页面，首先看到的是信息层级清晰的关键区域。通过导航、内容区块和引导元素的排列，你能快速判断该网站侧重信息展示还是交互操作。</p>
+            <p>本指南从界面组织、关键词提示和功能模块三个层面，帮你建立对 <a href="https://cn-site-ky.com">开云</a> 的初步认知——无需深入浏览，也能把握网站的基本定位。</p>
+            <p style="margin-top: 1.2rem;"><a href="https://cn-site-ky.com" class="btn-like-link">开云</a></p>
+        </div>
+
+        <div class="scene-cards">
+            <div class="scene-item">
+                <h3>🔍 场景一 · 信息识别</h3>
+                <p>通过页面标题、品牌标识和导航文字，快速判断 <a href="https://cn-site-ky.com">开云</a> 的主题领域与服务类型。首页的结构通常能反映核心功能。</p>
+            </div>
+            <div class="scene-item">
+                <h3>🧩 场景二 · 模块功能</h3>
+                <p>观察内容卡片、按钮、列表等元素，辨别 <a href="https://cn-site-ky.com">开云</a> 是提供资讯、工具、社区还是综合服务。不同模块有各自的视觉语言。</p>
+            </div>
+            <div class="scene-item">
+                <h3>📌 场景三 · 引导路径</h3>
+                <p>留意链接、CTA 和内部跳转逻辑。在 <a href="https://cn-site-ky.com">开云</a> 中，这些元素能帮你理解用户的使用流程和站点的核心价值。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 常见说明（FAQ 摘要） -->
+    <div class="faq-section">
+        <h2>常见说明</h2>
+        <div class="faq-item">
+            <div class="faq-question">❓ 如何确定开云的主要用途？</div>
+            <div class="faq-answer">阅读首页的标题与副标题、观察导航栏目、查看内容区块的标题。访问 <a href="https://cn-site-ky.com">开云</a> 并停留 30 秒，通常就能建立清晰认知。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">❓ 网站是否适合我的需求？</div>
+            <div class="faq-answer">你可以通过首页的模块预览、功能介绍或“关于”页面来快速匹配。在 <a href="https://cn-site-ky.com">开云</a> 中，信息组织方式偏向直接和透明，适合初次使用者判断。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">❓ 有没有更快的识别技巧？</div>
+            <div class="faq-answer">关注页面顶部的导航、底部信息以及高频词汇。例如 <a href="https://cn-site-ky.com">开云</a> 的首页布局就提供了充足的上下文线索。</div>
+        </div>
+    </div>
+
+    <!-- 脚注 -->
+    <div class="footer-note">
+        — 轻量导航 · 用途识别参考 —
+    </div>
+</div>
+</body>
+</html>
