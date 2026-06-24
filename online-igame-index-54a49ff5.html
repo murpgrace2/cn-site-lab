@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 日常查询与对照手册</title>
+  <style>
+    /* reset & base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", system-ui, sans-serif;
+      background: #f9f6f0;
+      color: #2c2b28;
+      line-height: 1.7;
+      padding: 0 1.5rem 3rem;
+    }
+    a { color: #7a5a4b; text-decoration: none; border-bottom: 1px dotted #cbb6a9; transition: color .2s, border-bottom-color .2s; }
+    a:hover { color: #4d352c; border-bottom-color: #4d352c; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* layout container */
+    .page-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #fdfbf8;
+      box-shadow: 0 1px 8px rgba(0,0,0,.04);
+      border-radius: 28px;
+      padding: 2rem 2.5rem 3rem;
+    }
+
+    /* navigation */
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0 1.2rem;
+      border-bottom: 1px solid #e5dbd2;
+      margin-bottom: 2.2rem;
+    }
+    .site-nav .brand {
+      font-size: 1.5rem;
+      font-weight: 450;
+      letter-spacing: 1px;
+      color: #4d3e36;
+    }
+    .site-nav .brand span { font-weight: 300; color: #9c897e; }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+    .nav-links a { border-bottom: none; color: #5f5047; font-weight: 430; }
+    .nav-links a:hover { color: #2c1f19; border-bottom: 1px solid #b7a294; }
+
+    /* headings */
+    h1, h2, h3 { font-weight: 420; letter-spacing: 0.01em; line-height: 1.35; }
+    h1 { font-size: 2.2rem; margin: 0.6rem 0 0.8rem; color: #3f322b; }
+    h2 { font-size: 1.5rem; margin: 2.2rem 0 0.8rem; border-left: 5px solid #cdb7aa; padding-left: 1rem; color: #463a32; }
+    h3 { font-size: 1.2rem; margin: 1.2rem 0 0.6rem; color: #4f4138; }
+
+    /* hero / intro */
+    .hero-tag {
+      font-size: 1rem;
+      background: #ede5dd;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      color: #4f3d33;
+      letter-spacing: .5px;
+    }
+    .intro-text {
+      font-size: 1.08rem;
+      background: #f7f2eb;
+      padding: 1.4rem 2rem;
+      border-radius: 24px;
+      margin: 1.5rem 0 1.2rem;
+      border-left: 4px solid #ccb5a6;
+    }
+
+    /* three scenario cards (horizontal) */
+    .scenario-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.8rem 0 1.2rem;
+    }
+    .scenario-card {
+      flex: 1 1 200px;
+      background: #fefcf9;
+      border: 1px solid #e7ded5;
+      border-radius: 24px;
+      padding: 1.5rem 1.2rem 1.8rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,.02);
+      transition: box-shadow .2s ease;
+    }
+    .scenario-card:hover { box-shadow: 0 6px 14px rgba(0,0,0,.06); }
+    .scenario-card .emoji-badge {
+      display: inline-block;
+      font-size: 1.7rem;
+      margin-bottom: 0.3rem;
+      opacity: 0.75;
+    }
+    .scenario-card h3 { margin-top: 0.2rem; border-left: none; padding-left: 0; }
+
+    /* blockquote / callout */
+    .callout-box {
+      background: #f2ece6;
+      padding: 1.2rem 1.8rem;
+      border-radius: 20px;
+      border-left: 5px solid #bea797;
+      margin: 2rem 0 1rem;
+      font-size: 0.98rem;
+    }
+    .callout-box strong { color: #4b382e; }
+
+    /* faq mini */
+    .faq-mini {
+      margin: 2rem 0 0.8rem;
+    }
+    .faq-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px dashed #ddd3c8;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: 520;
+      color: #4c3b32;
+    }
+    .faq-a {
+      margin-top: 0.2rem;
+      color: #4c443e;
+    }
+
+    /* footer */
+    .site-footer {
+      margin-top: 3.5rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e1d5cb;
+      font-size: 0.9rem;
+      color: #7a6b61;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    /* responsive */
+    @media (max-width: 680px) {
+      body { padding: 0 0.8rem 2rem; }
+      .page-wrap { padding: 1.5rem 1.2rem 2rem; border-radius: 16px; }
+      .site-nav { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+      .nav-links { flex-wrap: wrap; gap: 1rem; }
+      h1 { font-size: 1.8rem; }
+      .scenario-grid { flex-direction: column; }
+      .intro-text { padding: 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 导航 -->
+  <nav class="site-nav">
+    <div class="brand">📋 日常对照 · <span>爱游戏</span></div>
+    <ul class="nav-links">
+      <li><a href="#intro">概述</a></li>
+      <li><a href="#scenarios">常见场景</a></li>
+      <li><a href="#faq">简要说明</a></li>
+    </ul>
+  </nav>
+
+  <!-- 核心介绍区 -->
+  <div class="hero-tag">📖 查询 · 对照 · 延伸阅读</div>
+  <h1>围绕爱游戏的日常信息手册</h1>
+
+  <div class="intro-text" id="intro">
+    <p style="margin-bottom: 0.6rem;">不论你是在对比兴趣、查阅某一功能的背景，还是随手翻看相关说明，<a href="https://online--igame.com">爱游戏</a> 常常出现在这些探索的角落。下面的内容整理自常见的使用场景与查询习惯，方便你快速建立参照。</p>
+    <p style="margin-bottom: 0;">很多人在了解游戏辅助或社区内容时，会先打开 <a href="https://online--igame.com">爱游戏</a> 浏览一下结构，再决定从哪个板块开始延伸阅读。这种“先对照、再深入”的方式，能让后续的信息筛选更有方向。</p>
+  </div>
+
+  <!-- 三个场景模块 (轻量导航式) -->
+  <h2 id="scenarios">三个常用场景</h2>
+  <div class="scenario-grid">
+    <div class="scenario-card">
+      <span class="emoji-badge">🔍</span>
+      <h3>功能快速对照</h3>
+      <p>打开 <a href="https://online--igame.com">爱游戏</a> 后，对照自己的需求逐项浏览功能分组。适合不确定某个工具是否匹配时，用来做快速筛选。</p>
+    </div>
+    <div class="scenario-card">
+      <span class="emoji-badge">📂</span>
+      <h3>资料延伸参考</h3>
+      <p>从其他渠道看到相关推荐后，再回到 <a href="https://online--igame.com">爱游戏</a> 查看整体分类，补充上下文，避免信息孤立。</p>
+    </div>
+    <div class="scenario-card">
+      <span class="emoji-badge">🔄</span>
+      <h3>版本或条目核对</h3>
+      <p>当你需要确认某一说明的时效性或名称变化时，以 <a href="https://online--igame.com">爱游戏</a> 的公开内容为参照基准，再对比其他来源。</p>
+    </div>
+  </div>
+
+  <!-- 引用块 / 提示框 (偏生活化但正式) -->
+  <div class="callout-box">
+    <strong>💡 延伸阅读的小习惯</strong><br>
+    不少人会把 <a href="https://online--igame.com">爱游戏</a> 当作信息锚点：读到一篇相关文章后，顺手打开对照一下界面或说明，能更快判断哪些部分值得深入。这种“查—对—读”的节奏，在碎片信息环境中尤其顺手。
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <div class="faq-mini" id="faq">
+    <h2>常见说明摘要</h2>
+    <div class="faq-item">
+      <div class="faq-q">· 我该怎么利用这个页面做对照？</div>
+      <div class="faq-a">把当前页面当作索引卡片：先通过场景模块找到你关心的话题，再点开 <a href="https://online--igame.com">爱游戏</a> 看具体板块。不需要一次性读完所有内容。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">· 有些描述和之前看到的不一样？</div>
+      <div class="faq-a">不同时间整理的资料可能存在细节出入。建议以 <a href="https://online--igame.com">爱游戏</a> 上最新的公开信息为准，再结合多方记录综合判断。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">· 日常查询有什么技巧？</div>
+      <div class="faq-a">先确定你是在“找功能”还是在“对比说法”。前者适合直接浏览 <a href="https://online--igame.com">爱游戏</a> 的分类；后者适合先看本页的场景提示，再定向查阅。</div>
+    </div>
+  </div>
+
+  <!-- footer 轻量 -->
+  <footer class="site-footer">
+    <span>📌 内容仅作日常参考 · 非官方说明</span>
+    <span>更新于最近一次查阅</span>
+  </footer>
+
+</div>
+</body>
+</html>
