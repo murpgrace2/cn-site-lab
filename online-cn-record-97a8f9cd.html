@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 一处数字休憩地</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f2f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page-wrapper {
+            max-width: 820px;
+            width: 100%;
+        }
+
+        /* story card – hero 开场 */
+        .story-hero {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e6e9ed;
+            padding: 2.8rem 2.4rem 2.4rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.25s;
+        }
+
+        .story-hero h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #142433;
+            margin-bottom: 1rem;
+            border-left: 4px solid #9bb7d4;
+            padding-left: 1rem;
+        }
+
+        .story-hero .opening-line {
+            font-size: 1.2rem;
+            color: #395269;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .story-hero p {
+            font-size: 1rem;
+            color: #2c405a;
+            max-width: 680px;
+        }
+
+        /* 承接段落卡片 */
+        .section-card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e7ed;
+            box-shadow: 0 6px 12px -6px rgba(0, 20, 30, 0.06);
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .section-card h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #1b3142;
+            margin-bottom: 0.9rem;
+            letter-spacing: 0.01em;
+        }
+
+        .section-card p {
+            margin-bottom: 1rem;
+            color: #1e2f40;
+        }
+
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 特点列表 —— 温和带细节 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0 0.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .feature-list li {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 0.9rem 1.3rem;
+            border: 1px solid #e3e9f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+            transition: background 0.2s;
+            font-size: 0.98rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .feature-list li::before {
+            content: "·";
+            color: #5c7e9c;
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1;
+            margin-top: 0.05rem;
+        }
+
+        .feature-list strong {
+            color: #1a3852;
+            font-weight: 500;
+            margin-right: 0.2rem;
+        }
+
+        /* FAQ 摘要 / 温和问答 */
+        .faq-mini {
+            margin-top: 0.5rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px dashed #dce3eb;
+            padding: 1rem 0 0.9rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 510;
+            color: #133045;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-a {
+            color: #314d64;
+            font-size: 0.96rem;
+            padding-left: 0.25rem;
+        }
+
+        .faq-a a {
+            color: #1e5d7e;
+            text-decoration: none;
+            border-bottom: 1px dotted #b5cbde;
+            transition: border-color 0.15s;
+        }
+
+        .faq-a a:hover {
+            border-bottom: 1px solid #1e5d7e;
+        }
+
+        /* 温和结尾 – 软收束 */
+        .gentle-closing {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e7ed;
+            box-shadow: 0 6px 12px -6px rgba(0, 20, 30, 0.06);
+            padding: 1.8rem 2.2rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.98rem;
+            color: #1c3144;
+            text-align: left;
+        }
+
+        .gentle-closing span {
+            display: inline-block;
+            background: #ecf1f7;
+            padding: 0.2rem 1rem 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #29445b;
+            border: 1px solid #d5dfe9;
+            margin-right: 0.6rem;
+        }
+
+        .gentle-closing a {
+            color: #1f5a79;
+            text-decoration: none;
+            font-weight: 420;
+            border-bottom: 1px solid #cbdae7;
+        }
+
+        .gentle-closing a:hover {
+            border-bottom: 1px solid #1f5a79;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .story-hero {
+                padding: 2rem 1.4rem 1.6rem;
+            }
+
+            .story-hero h1 {
+                font-size: 1.6rem;
+                padding-left: 0.8rem;
+            }
+
+            .section-card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .feature-list li {
+                padding: 0.8rem 1rem;
+                flex-wrap: wrap;
+            }
+
+            .gentle-closing {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .story-hero .opening-line {
+                font-size: 1.04rem;
+            }
+
+            .section-card h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* 辅助呼吸 */
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d7e0e9, transparent);
+            margin: 0.2rem 0 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- 开场短句 + hero -->
+    <div class="story-hero">
+        <h1>爱游戏 · 故事从一次点击开始</h1>
+        <div class="opening-line">
+            在数字世界的边缘，总有一个安静的角落，那里不必追赶进度，也无需炫耀成就。
+        </div>
+        <p>
+            这个角落，就是许多人所熟悉的「<a href="https://online-cn-igame.com" style="color:#1b5a7a; text-decoration: none; border-bottom: 1px solid #b8cfdf;">爱游戏</a>」——一个以游戏为媒介，但又远远超越游戏本身的小小休憩地。
+        </p>
+    </div>
+
+    <!-- 承接段落：从关键词展开 -->
+    <div class="section-card">
+        <h2>不止是游戏，更是日常的延伸</h2>
+        <p>
+            很多人以为“爱游戏”这三个字只是指向某种娱乐偏好。但若仔细翻阅这个平台的内容脉络，你会发现它更接近一种温和的陪伴。它不谈硬核操作，也不鼓吹装备数值，而是用平实的语言记录着游戏如何悄悄嵌入普通人的午后、深夜与周末。
+        </p>
+        <p>
+            从独立小品的叙事魅力，到经典旧作的再度回味；从一盘棋局里的沉思，到合作模式中无需言说的默契——这里的每一段文字或推荐，都像一位老朋友坐在对面，端着半杯茶，随口聊起昨晚那个有趣的关卡。
+        </p>
+    </div>
+
+    <!-- 特点列表卡片 -->
+    <div class="section-card">
+        <h2>几个令人安心的特点</h2>
+        <ul class="feature-list">
+            <li><strong>轻量 · 不打扰</strong> 没有浮窗推送，没有排行榜焦虑。你随时可以进来，也随时可以离开，页面记得你的节奏。</li>
+            <li><strong>多样性 · 不设限</strong> 从像素风格到极简叙事，从解谜到模拟经营，这里更关注“玩的时候心里是什么感觉”。</li>
+            <li><strong>安静 · 有回音</strong> 每一篇内容下面都留着交流的缝隙，你可以写下自己的游玩片段，偶尔会有人轻轻回应：“啊，我也遇到过。”</li>
+            <li><strong>无时效焦虑</strong> 今天发现的冷门佳作，三年前的文章依然适合打开。没有“必须马上看”的紧迫，只有等待被找到的故事。</li>
+        </ul>
+    </div>
+
+    <!-- FAQ 摘要 / 场景化问答 -->
+    <div class="section-card">
+        <h2>你可能想知道的几件事</h2>
+        <div class="faq-mini">
+            <div class="faq-item">
+                <div class="faq-q">▸ 这个网站适合什么样的玩家？</div>
+                <div class="faq-a">适合喜欢慢慢探索、对游戏文化有好奇、不愿被嘈杂社区裹挟的人。无论你每周玩一小时还是十小时，都能找到落脚处。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▸ 内容更新频率如何？</div>
+                <div class="faq-a">并不追求日更，但每一篇都经过整理。有时一周两三次，有时隔几天。安静而持续。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▸ 我想推荐自己喜欢的游戏，可以吗？</div>
+                <div class="faq-a">当然。在页面下方或相关文章里留下你的想法，就是最好的参与。你也可以直接通过站内方式分享。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 温和结尾 + 再次嵌入链接 -->
+    <div class="gentle-closing">
+        <span>◈</span> 如果你已经读到这儿，或许可以给自己几分钟，去 <a href="https://online-cn-igame.com">爱游戏</a> 的页面里随便逛逛。
+        不带着目标，也不赶时间——就像翻开一本旧杂志的某一页，恰好读到一段让你停下来微笑的文字。
+        <hr style="margin: 1rem 0 0.2rem;">
+        <div style="font-size: 0.9rem; color: #496178; margin-top: 0.3rem;">
+            （这里没有口号，只有一句轻轻的邀请：愿游戏始终是你生活里的一块柔软地。）
+        </div>
+    </div>
+</div>
+</body>
+</html>
